@@ -9,5 +9,5 @@ $'\n#Last boot:' `who -b | awk '{print $3, $4}'` \
 $'\n#LVM use:' `lsblk | grep 'lvm' -m 1 | awk '{if($0){print "yes"} else {print "no"}}'` \
 $'\n#TCP Connections:' `ss -at | grep 'ESTAB' | wc -l` 'ESTABLISHED' \
 $'\n#User log:' `who | cut -d ' ' -f 1 | sort -u | wc -l` \
-$'\n#Network: IP' `hostname -I | awk '{print $1}'` `ip a | grep 'link/ether' | awk '{printf("(%s)", $2)}'` \
+$'\n#Network: IP' `hostname -I` `ip a | grep 'link/ether' | awk '{printf("(%s)", $2)}'` \
 $'\n#Sudo:' `grep 'COMMAND' /var/log/sudo/sudo.log | wc -l` 'cmd'
